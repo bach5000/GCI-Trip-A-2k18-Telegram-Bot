@@ -11,6 +11,7 @@ def find_at(msg):
         if '@' in text:
             return text
 
+# Just in case we can't remember all the commands... lol
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     bot.reply_to(message,\
@@ -25,7 +26,7 @@ def send_welcome(message):
     bot.reply_to(message,'https://github.com/Bisht13/GCI-Trip-A-2k18-Telegram-Bot')
 
 # Link to Instagram account: /ig @[username]
-@bot.message_handler(func= lambda msg: msg.text is not None and '@' in msg.text and msg.text[:3] == '/ig @')
+@bot.message_handler(func= lambda msg: msg.text is not None and '@' in msg.text and msg.text[:5] == '/ig @')
 def at_answer(message):
     texts = message.text.split()
     id = find_at(texts)
